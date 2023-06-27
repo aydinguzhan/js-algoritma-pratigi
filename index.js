@@ -161,4 +161,23 @@ function generetaUuid(siraNo) {
   }
 }
 
-console.log(generetaUuid(10));
+//console.log(generetaUuid(10));
+
+//İki nesnenin eşdeğer özellikte olmasını kontrol edelim.
+
+const matchesObj = (obj, source) =>
+  Object.keys(source).every(
+    (key) => obj.hasOwnProperty(key) && obj[key] === source[key]
+  );
+console.log(
+  matchesObj(
+    { age: 25, country: "tr", beard: true },
+    { country: "tr", beard: true }
+  )
+); // true
+console.log(
+  matchesObj(
+    { age: 25, country: "tr", beard: true },
+    { age: 25, country: "tr", beard: true }
+  )
+); // false
