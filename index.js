@@ -169,15 +169,60 @@ const matchesObj = (obj, source) =>
   Object.keys(source).every(
     (key) => obj.hasOwnProperty(key) && obj[key] === source[key]
   );
-console.log(
-  matchesObj(
-    { age: 25, country: "tr", beard: true },
-    { country: "tr", beard: true }
-  )
-); // true
-console.log(
-  matchesObj(
-    { age: 25, country: "tr", beard: true },
-    { age: 25, country: "tr", beard: true }
-  )
-); // false
+// console.log(
+//   matchesObj(
+//     { age: 25, country: "tr", beard: true },
+//     { country: "tr", beard: true }
+//   )
+// ); // true
+// console.log(
+//   matchesObj(
+//     { age: 25, country: "tr", beard: true },
+//     { age: 25, country: "tr", beard: true }
+//   )
+// ); // false
+
+// merhaba-dünya , javascript-yazmak-cok-guzeldir  gibi string ifadeleri düzenleyerek çıktı olarak "MerhabaDunya" yapısına getirelim
+
+function camelCase(str) {
+  let step1 = str.split("-");
+  let step2 = [];
+
+  for (let i = 0; i <= step1.length - 1; i++) {
+    step2.push(step1[i].charAt(0).toUpperCase() + step1[i].slice(1));
+  }
+
+  return step2.join("");
+}
+
+//console.log(camelCase("merhaba-dünya"));
+
+//NARTİSTİK SAYI KONTROLÜ 153 = 1^3+5^3+3^3
+
+let narstikNumber = (num) => {
+  let sum = 0;
+  if (typeof num === "number") {
+    let step1 = num.toString();
+    for (let i = 0; i <= step1.length - 1; i++) {
+      sum += Number(step1[i]) ** 3;
+    }
+    if (sum === num) {
+      console.log("narstik sayıdır");
+    } else {
+      console.log("nartik sayı değildir");
+    }
+  } else if (typeof num == "string") {
+    for (let i = 0; i <= num.length - 1; i++) {
+      sum += Number(num[i]) ** 3;
+    }
+    if (sum === Number(num)) {
+      console.log("narstik sayıdır");
+    } else {
+      console.log("nartik sayı değildir");
+    }
+  } else {
+    console.log("sayı değeri giriniz!");
+  }
+};
+
+//narstikNumber("153");
