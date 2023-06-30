@@ -226,3 +226,74 @@ let narstikNumber = (num) => {
 };
 
 //narstikNumber("153");
+
+//Hızlı sıralama algoritması
+
+function quick_Sort(origArray) {
+  if (origArray <= 1) {
+    return origArray;
+  } else {
+    let right = [];
+    let left = [];
+    let pivot = origArray.pop();
+    let newArray = [];
+
+    for (let i = 0; i < origArray.length; i++) {
+      if (origArray[i] <= pivot) {
+        left.push(origArray[i]);
+      } else {
+        right.push(origArray[i]);
+      }
+    }
+    return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
+  }
+}
+
+var myArray = [3, 0, 2, 5, -1, 4, 1];
+
+// console.log(quick_Sort(myArray));
+// console.log(myArray.sort());
+
+// recursion fonksiyonlara örnek
+
+// Faktoriyel hesaplayalım
+
+function factorial(num) {
+  if (num === 0) {
+    return 1;
+  } else if (num < 0) {
+    return 0;
+  } else {
+    return num * factorial(num - 1);
+  }
+}
+
+//console.log(factorial(20));
+
+//recursion fonksiyon ile aralık değerini döndüren bir methot oluşturalım
+
+function range(start, end) {
+  if (end - start === 2) {
+    return [start + 1];
+  } else if (end - start === 0) {
+    return [];
+  } else {
+    let list = range(start, end - 1);
+    list.push(end - 1);
+    return list;
+  }
+}
+
+//console.log(range(-5, 3));
+
+// Sıralamayı for loop ile yaparsak
+
+function range_loop(start, end) {
+  let list = [];
+  for (let i = start + 1; i < end; i++) {
+    list.push(i);
+  }
+  return list;
+}
+
+//console.log(range_loop(-3, 5));
