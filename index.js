@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-// a ile b arasındaki tamsayıların çarpımını hesağlayan program
+// a ile b arasındaki tamsayıların çarpımını hesaplayan program
 function multiplication(val1, val2) {
   let results = 1;
   if (val1 < val2) {
